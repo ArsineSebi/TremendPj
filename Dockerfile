@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 
-COPY script.sh .
+COPY script.sh /root
 
 ARG NAME
 
 RUN echo $NAME
 
-RUN ./script.sh 
+CMD [ "/root/script.sh" ] 
