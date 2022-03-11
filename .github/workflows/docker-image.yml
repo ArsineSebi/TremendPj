@@ -18,5 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Print arg
+      run: echo "${{ github.event.inputs.name }}"
     - name: Build the Docker image
       run: "docker build . --file Dockerfile --build-arg NAME=${{ github.event.inputs.name }}"
