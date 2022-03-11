@@ -1,8 +1,8 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   workflow_dispatch:
     inputs:
       name:
@@ -11,15 +11,12 @@ on:
         default: 'Sebi'     
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Print arg
-      run: echo ${{ github.event.inputs.name }}
+      run: |
+        echo "Name: ${{ github.event.inputs.name }}"
     - name: Build the Docker image
-      run: "docker build . --file Dockerfile --tag ubuntu:$(date +%s)"
-      #run: "docker build . --file Dockerfile --build-arg NAME=${{ github.event.inputs.name }}"
+      run: "docker build . --file Dockerfile --build-arg NAME=${{ github.event.inputs.name }}"
