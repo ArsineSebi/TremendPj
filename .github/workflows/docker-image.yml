@@ -17,5 +17,5 @@ jobs:
         docker run --env NAME=Sebi myimage
     - name: Print username
       run: |
-        echo ${{env.DOCKERHUB_NAME.USERNAME}}
+        echo ${{secrets.USERNAME}}
         
