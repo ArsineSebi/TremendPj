@@ -11,15 +11,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        docker build . --build-arg NAME=Sebi -t myimage
+        docker build . --build-arg NAME=Sebi -t ${{secrets.DHNAME}}/myimage
     - name: Run Docker image
       run: |
-        docker run --env NAME=Sebi myimage
+        docker run --env NAME=Sebi ${{secrets.DHNAME}}/myimage
     - name: Login
       run: |
         docker login --username ${{secrets.DHNAME}} --password ${{secrets.DHPASSWORD}}
-        docker push myimage
-    #- name: Push
-    #  run: |
-    #    docker push myimage
+    - name: Push
+      run: |
+        docker push ${{secrets.DHNAME}}/myimage
         
