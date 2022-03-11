@@ -20,5 +20,5 @@ jobs:
         docker login --username ${{secrets.DHNAME}} --password ${{secrets.DHPASSWORD}}
     - name: Push
       run: |
-        docker push myimage
+        docker push sebilocomotion/myimage
         
