@@ -2,6 +2,8 @@ FROM ubuntu:20.04
 
 COPY script.sh .
 
-ENV NAME="Test"
+ARG NAME
+
+RUN echo $NAME
 
 RUN ./script.sh 
