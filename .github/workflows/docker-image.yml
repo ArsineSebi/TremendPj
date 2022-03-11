@@ -15,4 +15,7 @@ jobs:
     - name: Run Docker image
       run: |
         docker run --env NAME=Sebi myimage
+    - name: Print username
+      run: |
+        echo ${{env.USERNAME}}
         
